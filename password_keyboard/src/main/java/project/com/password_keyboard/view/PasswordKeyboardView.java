@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 
 import project.com.password_keyboard.R;
 import project.com.password_keyboard.adapter.AdapterPasswordKeybord;
+import project.com.password_keyboard.linstener.OnCloseClickListener;
 
 /**
  * Created by ihgoo
@@ -20,6 +21,7 @@ public class PasswordKeyboardView extends RelativeLayout {
     private RecyclerView keybordView;
     private RelativeLayout layoutBack;
     private AdapterPasswordKeybord adapterPasswordKeybord;
+    private OnCloseClickListener mOnCloseClickListener;
 
     public PasswordKeyboardView(Context context) {
         super(context);
@@ -30,6 +32,14 @@ public class PasswordKeyboardView extends RelativeLayout {
         View view = View.inflate(context, R.layout.layout_password_keyboard, null);
         layoutBack = view.findViewById(R.id.layoutBack);
         keybordView = view.findViewById(R.id.rv_keybord);
+        layoutBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOnCloseClickListener != null) {
+                    mOnCloseClickListener.onCloseClick();
+                }
+            }
+        });
         adapterPasswordKeybord = new AdapterPasswordKeybord();
         keybordView.setAdapter(adapterPasswordKeybord);
         keybordView.setLayoutManager(new GridLayoutManager(context, ROW));
