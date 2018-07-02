@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#e0e0e0">
+
+    <TextView
+        android:id="@+id/tv_keys"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/selector_keys_item"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="#333333"
+        android:textSize="26sp" />
+
+
+    <ViewStub
+        android:id="@+id/view_stub"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout="@layout/stub_sub" />
+
+
+
+</RelativeLayout>
