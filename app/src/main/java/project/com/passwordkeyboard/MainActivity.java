@@ -1,10 +1,12 @@
 package project.com.passwordkeyboard;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import project.com.password_keyboard.view.PasswordKeyboardView;
 import project.com.password_keyboard.adapter.AdapterPasswordKeybord;
@@ -16,32 +18,24 @@ import project.com.password_keyboard.linstener.OnPasswordCallBack;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        PasswordKeyboardView keyboardView = findViewById(R.id.view_password_keyboard);
-        AdapterPasswordKeybord adapterPasswordKeybord = keyboardView.getPasswordKeybord();
-        adapterPasswordKeybord.setOnKeybordClickListener(new OnKeybordClickListener() {
+        findViewById(R.id.btn_show_keybord).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNumberClick(int number) {
-                Log.e(TAG,"number :" +number);
-            }
-
-            @Override
-            public void onDeleteClick() {
-                Log.e(TAG,"onDeleteClick");
+            public void onClick(View v) {
+                new PasswordDialog(MainActivity.this).show();
             }
         });
 
-
-        adapterPasswordKeybord.setOnPasswordCallBack(new OnPasswordCallBack() {
+        findViewById(R.id.btn_show_keybord_in_activity).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void wholePassword(String password) {
-                Log.e(TAG,"wholePassword: "+password);
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,PasswordKeybordActivity.class));
             }
         });
+
     }
 }
