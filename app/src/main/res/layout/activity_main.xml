@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
 
-    <project.com.password_keyboard.PasswordKeyboardView
-        android:id="@+id/virtualKeyboardView"
+    <project.com.password_keyboard.view.PasswordKeyboardView
+        android:id="@+id/view_password_keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom" />

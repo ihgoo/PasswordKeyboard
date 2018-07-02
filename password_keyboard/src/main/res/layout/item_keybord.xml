@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/item_keybord"
     android:layout_height="wrap_content"
     android:background="#e0e0e0">
 
@@ -19,8 +20,7 @@
     <ViewStub
         android:id="@+id/view_stub"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="60dp"
         android:layout="@layout/stub_sub" />
 
 
