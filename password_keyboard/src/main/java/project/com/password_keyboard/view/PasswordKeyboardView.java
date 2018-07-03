@@ -34,6 +34,10 @@ public class PasswordKeyboardView extends RelativeLayout {
         super(context);
     }
 
+    public void setOnCloseClickListener(OnCloseClickListener onCloseClickListener) {
+        this.mOnCloseClickListener = onCloseClickListener;
+    }
+
     public PasswordKeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
