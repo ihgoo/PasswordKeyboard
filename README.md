@@ -30,14 +30,14 @@ xml
         android:layout_height="wrap_content"/>
 ```
 
-####支持以下两个自定义属性
 
+
+####支持以下两个自定义属性
 
 | Name                 | Type      | Default      | Description                                                        |
 |----------------------|-----------|--------------|--------------------------------------------------------------------|
 | shuffle            | `boolean`  | `false` | 设置密码乱序（true为乱序，false为正常）|
 | pwdLength            | `integer`  | `6` | 设置密码长度|
-| ==================== | ========= | ============ | =================== |
 
 
 
@@ -59,11 +59,13 @@ xml
 
 ### 效果图
 
-![device-2018-07-02-183210.png](https://i.loli.net/2018/07/02/5b3a0065163fc.png)
-正序排列
+![device-2018-07-03-132552.png](https://i.loli.net/2018/07/03/5b3b096fcbd7e.png)
 
-![device-2018-07-03-131916.png](https://i.loli.net/2018/07/03/5b3b07a5bb7dc.png)
 乱序排列
+
+![device-2018-07-03-132656.png](https://i.loli.net/2018/07/03/5b3b09887ffdc.png)
+
+正序排列
 
 ## 更新日志
 
