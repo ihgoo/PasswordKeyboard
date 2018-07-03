@@ -30,13 +30,29 @@ xml
         android:layout_height="wrap_content"/>
 ```
 
+####支持以下两个自定义属性
+
+
+| Name                 | Type      | Default      | Description                                                        |
+|----------------------|-----------|--------------|--------------------------------------------------------------------|
+| shuffle            | `boolean`  | `false` | 设置密码乱序（true为乱序，false为正常）|
+| pwdLength            | `integer`  | `6` | 设置密码长度|
+| ==================== | ========= | ============ | =================== |
+
+
+
 
 #### 参数说明
 
-* ` OnOloseClickListener.onCloseClick`: 键盘关闭按钮监听
-* ` OnKeybordClickListener.onNumberClick`: 数字键盘按钮监听(仅支持数字)
-* ` OnKeybordClickListener.onDeleteClick`: 键盘删除按钮监听
-* ` OnPasswordCallBack.wholePassword`: 完整密码的回调
+* ` OnOloseClickListener.onCloseClick`: 数字键盘关闭按钮的监听
+* ` OnKeybordClickListener.onNumberClick`: 数字键盘按钮的监听(仅支持数字)
+* ` OnKeybordClickListener.onDeleteClick`: 数字键盘删除按钮的监听
+* ` OnPasswordCallBack.wholePassword`: 完整密码输入完成的回调
+* ` PasswordKeyboardView.setPwdLength`: 设置密码长度（也可以在xml中设置，见自定义属性）
+* ` PasswordKeyboardView.setShuffle`: 设置密码乱序（true为乱序，false为正常）（也可以在xml中设置，见自定义属性）
+* ` PasswordKeyboardView.rebuild`: 重新构建布局，调用 `setPwdLength` 和 `setShuffle` 方法后只需要调用一次rebuild即可。
+
+
 
 
 
@@ -44,6 +60,10 @@ xml
 ### 效果图
 
 ![device-2018-07-02-183210.png](https://i.loli.net/2018/07/02/5b3a0065163fc.png)
+正序排列
+
+![device-2018-07-03-131916.png](https://i.loli.net/2018/07/03/5b3b07a5bb7dc.png)
+乱序排列
 
 ## 更新日志
 
@@ -51,6 +71,6 @@ xml
 	* 完善功能
 
 ## TODO LIST
-- [ ] 键盘随机性
+- [x] 键盘随机性
 - [ ] 字母键盘
 - [ ] 兼容自定义布局
