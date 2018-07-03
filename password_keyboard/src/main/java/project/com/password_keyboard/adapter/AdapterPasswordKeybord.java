@@ -33,6 +33,7 @@ public class AdapterPasswordKeybord extends RecyclerView.Adapter<AdapterPassword
     private StringBuffer password;
     private int nowPasswordLength;
     private List<String> numberList;
+    private boolean shuffle;
 
     public AdapterPasswordKeybord(boolean isShuffle, int pwdLength) {
         init();
@@ -46,6 +47,7 @@ public class AdapterPasswordKeybord extends RecyclerView.Adapter<AdapterPassword
     }
 
     private void setShuffle(boolean isShuffle) {
+        shuffle = isShuffle;
         String[] arr = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
         numberList = Arrays.asList(arr);
         if (isShuffle) {
@@ -87,7 +89,7 @@ public class AdapterPasswordKeybord extends RecyclerView.Adapter<AdapterPassword
     public void onBindViewHolder(AdapterPasswordKeybord.ViewHolder holder, final int position) {
 
         int key = 0;
-        if (position < 9) {
+        if (position < 10) {
             key = Integer.parseInt(numberList.get(position));
         }
 
@@ -97,7 +99,11 @@ public class AdapterPasswordKeybord extends RecyclerView.Adapter<AdapterPassword
         } else if (position == 9) {
             holder.tvKey.setText("");
         } else if (position == 10) {
-            holder.tvKey.setText("0");
+            if (shuffle){
+                holder.tvKey.setText(numberList.get(9));
+            }else {
+                holder.tvKey.setText("0");
+            }
         }
 
         if (position < 11 && position != 9) {
