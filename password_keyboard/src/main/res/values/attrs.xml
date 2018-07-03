@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="password_keybord">
+        <attr name="shuffle" format="boolean"></attr>
+        <attr name="pwdLength" format="integer"></attr>
+    </declare-styleable>
+
+
+</resources>

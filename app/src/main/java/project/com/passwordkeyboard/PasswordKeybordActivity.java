@@ -28,10 +28,13 @@ public class PasswordKeybordActivity extends AppCompatActivity implements OnPass
 
         textAmount = findViewById(R.id.et);
         PasswordKeyboardView keyboardView = findViewById(R.id.keyboardView);
-
+        //if you dont want to use custom attributes :
+//        keyboardView.setPwdLength(6);
+//        keyboardView.setShuffle(true);
 
         keyboardView.getPasswordKeybord().setOnKeybordClickListener(this);
         keyboardView.getPasswordKeybord().setOnPasswordCallBack(this);
+
 
         if (android.os.Build.VERSION.SDK_INT <= 10) {
             textAmount.setInputType(InputType.TYPE_NULL);

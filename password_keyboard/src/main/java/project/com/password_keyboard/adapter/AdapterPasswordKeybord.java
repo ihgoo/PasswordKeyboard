@@ -2,12 +2,20 @@ package project.com.password_keyboard.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import project.com.password_keyboard.R;
 import project.com.password_keyboard.linstener.OnKeybordClickListener;
@@ -24,14 +32,25 @@ public class AdapterPasswordKeybord extends RecyclerView.Adapter<AdapterPassword
     private int passwordLength;
     private StringBuffer password;
     private int nowPasswordLength;
+    private List<String> numberList;
 
-    public AdapterPasswordKeybord() {
+    public AdapterPasswordKeybord(boolean isShuffle, int pwdLength) {
         init();
+        passwordLength = pwdLength;
+        setShuffle(isShuffle);
     }
 
     private void init() {
         password = new StringBuffer();
-        passwordLength = 6;
+
+    }
+
+    private void setShuffle(boolean isShuffle) {
+        String[] arr = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+        numberList = Arrays.asList(arr);
+        if (isShuffle) {
+            Collections.shuffle(numberList);
+        }
     }
 
 
@@ -66,10 +85,14 @@ public class AdapterPasswordKeybord extends RecyclerView.Adapter<AdapterPassword
 
     @Override
     public void onBindViewHolder(AdapterPasswordKeybord.ViewHolder holder, final int position) {
-        int key = position + 1;
 
+        int key = 0;
+        if (position < 9) {
+            key = Integer.parseInt(numberList.get(position));
+        }
 
         if (position < 9) {
+
             holder.tvKey.setText(String.valueOf(key));
         } else if (position == 9) {
             holder.tvKey.setText("");
@@ -89,17 +112,18 @@ public class AdapterPasswordKeybord extends RecyclerView.Adapter<AdapterPassword
         }
 
 
+        int finalKey = key;
         holder.itemKeybord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (position < 9) {
-                    mOnKeybordClickListener.onNumberClick(key);
-                    passwordApped(key);
+                    mOnKeybordClickListener.onNumberClick(finalKey);
+                    passwordApped(finalKey);
                 } else if (position == 9) {
 
                 } else if (position == 10) {
                     mOnKeybordClickListener.onNumberClick(0);
-                    passwordApped(key);
+                    passwordApped(finalKey);
                 } else if (position == 11) {
                     passwordSub();
                     mOnKeybordClickListener.onDeleteClick();

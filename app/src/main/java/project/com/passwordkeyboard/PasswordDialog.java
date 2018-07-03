@@ -23,6 +23,9 @@ public class PasswordDialog extends Dialog {
         setContentView(R.layout.dialog_password_keybord);
 
         PasswordKeyboardView keyboardView = this.findViewById(R.id.view_password_keyboard);
+        keyboardView.setPwdLength(6);
+        keyboardView.setShuffle(false);
+        keyboardView.rebuild();
         AdapterPasswordKeybord adapterPasswordKeybord = keyboardView.getPasswordKeybord();
         adapterPasswordKeybord.setOnKeybordClickListener(new OnKeybordClickListener() {
             @Override
